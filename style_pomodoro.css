@@ -1,12 +1,44 @@
 body{
     background-color: rgb(189, 39, 39);
-}
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 200 to 700 */
+        font-family: "Oswald", system-ui;
+        font-optical-sizing: auto;
+        font-style: normal;
 
-.oswald-titre {
-font-family: "Oswald", system-ui;
-font-optical-sizing: auto;
-font-weight: 500;
-font-style: normal;
+}
+h1{
+    text-align: center;
+    font-size:65px;
+}
+#affichage{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    margin: auto;
+    width: 500px;
+    height: 350px;
+}
+button{
+    display: inline;
+    margin-left: 25px;
+    margin-right: 25px;
+    align-items: center;
+    background-color: #F6D0B1;
+    font-family: "Oswald", system-ui;
+    border: transparent;
+    width: 125px;
+    height: 75px;
+    font-size: 39px;
+}
+
+
+#lancer{
+    margin: auto;
+    display: flex;
+    margin-top: 25px;
+    text-align: center;
+    background-color: #F6D0B1;
+    font-family: "Oswald", system-ui;
+    border: transparent;
+    width: 125px;
+    height: 75px;
+    font-size: 39px;
 }
