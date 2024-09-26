@@ -1,27 +1,31 @@
-let secondes = 0
-let minutes = 25
+let secondes = 5
+let minutes = 10
 
 let fini = false
-let parti = false
+let en_pause = false
+let en_travail = true
 
 let output = document.getElementById('affichage')
 let lancer_travail = document.getElementById('travail')
 let lancer_pause = document.getElementById('pause')
-
-lancer_travail.addEventListener('click' ,() => {
-    parti = true
-    secondes = 0
-    minutes = 25
-
-})
+let stop_play = document.getElementById('lancer')
 
 
-lancer_pause.addEventListener('click', () =>{
-    parti = true
-    secondes = 0
-    minutes = 5
 
-})
+// lancer_travail.addEventListener('click' ,() => {
+//     parti = true
+//     secondes = 0
+//     minutes = 25
+
+// })
+
+
+// lancer_pause.addEventListener('click', () =>{
+//     parti = true
+//     secondes = 0
+//     minutes = 5
+
+// })
 
 function convert(){
     //Actualisation des secondes
@@ -49,17 +53,48 @@ function convert(){
     if(minutes == 0  && secondes == 0){
         minutes = 0
         secondes = 0
-        if(!(fini) || !(parti)){//Pas parti pour ne pas avoir l'alert au démarrage, pas fini pour que 
-                                +//le temps se bloque a 0 et que les alertes n'apparaissent pas a l'infini
-            alert('temps écoulé')
+        
+        if(!(fini)){
+            if(en_travail == true){//Si on était en travail, on passe en pause et on remet les minutes secondes correspondantes
+                en_travail = false
+                minutes = 0
+                secondes = 5
+                en_pause = true
+                fini = false
+            } 
+            else{
+                if(en_pause == true){//Si on était en pause, on passe en travail et on remet les minutes secondes correspondantes
+                    en_pause = false
+                    minutes = 0
+                    secondes = 10
+                    en_travail = true
+                    fini = false
+                }
+            }
         }
-        fini = true
+        
     }
+    if(minutes < 10 && secondes < 10){
+        output.textContent =('0' + minutes + ' : ' + '0' + secondes)
+    }
+    else if(minutes >= 10 && secondes >= 10){
+        output.textContent =(minutes + ' : ' + secondes)
+    }
+    else if(minutes < 10 && secondes >= 10){
+        output.textContent =('0' + minutes + ' : ' + secondes)
+    }
+    else if(minutes >= 10 && secondes < 10){
+        output.textContent =(minutes + ' : ' + '0' + secondes)
+    }
+    
+    
 
-    output.textContent =("Restant : " + minutes + " Minutes " + ' : ' + secondes + " Secondes")
+    
+
     if(!(fini)){
         secondes-- 
     }
 }
 
 setInterval(convert, 1000)
+
