@@ -10,11 +10,12 @@
         <link rel="stylesheet" href="style_pomodoro.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>       
         
         <h1 id = "titre">Pomodoro Timer</h1>
+        <h2> Les boutons ci-dessous vous permettent de changer les temps de travail et pause</h2>
         <div id = "boutons_haut"> 
             <button id = "travail"> Travail </button>
             <button id = "pause"> Pause </button>
@@ -24,7 +25,11 @@
         <h2 id="affichage"> </h2>
         <script src="script_pomodoro.js" defer></script>
 
-        <button id = "lancer"> Pause </button>
+        <div id = "boutons_bas">
+            <button id = "stop_play"> Pause </button>
+            <button id = "reset"> Reset </button>
+        </div>
+        
 
     </body>
 </html>

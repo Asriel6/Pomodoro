@@ -6,26 +6,12 @@ let en_pause = false
 let en_travail = true
 
 let output = document.getElementById('affichage')
-let lancer_travail = document.getElementById('travail')
-let lancer_pause = document.getElementById('pause')
-let stop_play = document.getElementById('lancer')
+let stop_play = document.getElementById('stop_play')
+let reset = document.getElementById('reset')
 
-
-
-// lancer_travail.addEventListener('click' ,() => {
-//     parti = true
-//     secondes = 0
-//     minutes = 25
-
-// })
-
-
-// lancer_pause.addEventListener('click', () =>{
-//     parti = true
-//     secondes = 0
-//     minutes = 5
-
-// })
+reset.addEventListener('click', () => {
+    location.reload()
+})
 
 function convert(){
     //Actualisation des secondes
