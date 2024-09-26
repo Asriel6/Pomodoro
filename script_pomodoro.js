@@ -1,19 +1,35 @@
 let secondes = 5
-let minutes = 10
+let minutes = 0
 
 let fini = false
 let en_pause = false
 let en_travail = true
+let pause =  true
 
 let output = document.getElementById('affichage')
 let stop_play = document.getElementById('stop_play')
 let reset = document.getElementById('reset')
+let affichage_travail = document.getElementById('travail')
+let affichage_pause = document.getElementById('pause')
 
-reset.addEventListener('click', () => {
-    location.reload()
+
+
+stop_play.addEventListener('click', () => {
+    
+    if(pause){
+        pause = false
+        let stop_play = document.getElementById('stop_play').className= "fa-solid fa-rotate-right fa-2xl"
+    } else if (!(pause)) {
+        location.reload()
+    }
+    
 })
 
 function convert(){
+
+    //Différenciation pause/travail
+    
+
     //Actualisation des secondes
     if(secondes > 59){
         minutes = Math.round(secondes/60)
@@ -52,7 +68,7 @@ function convert(){
                 if(en_pause == true){//Si on était en pause, on passe en travail et on remet les minutes secondes correspondantes
                     en_pause = false
                     minutes = 0
-                    secondes = 10
+                    secondes = 5
                     en_travail = true
                     fini = false
                 }
@@ -77,8 +93,17 @@ function convert(){
 
     
 
-    if(!(fini)){
+    if(!(fini) && !(pause)){
         secondes-- 
+    }
+
+    if(en_pause){
+        affichage_travail.style.color = '#D1BECF'
+        affichage_pause.style.color = 'black'
+    }
+    else if(en_travail){
+        affichage_pause.style.color = '#D1BECF'
+        affichage_travail.style.color = 'black'
     }
 }
 
