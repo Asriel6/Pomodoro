@@ -74,6 +74,12 @@ button{
     justify-content:center;
 }
 
+.formulaires_hidden{
+    display: none;
+    align-items: center;
+    justify-content:center;
+}
+
 #formulaire_travail{
     background-color:#DEC5E3 ;
     margin-top: 50px;
@@ -92,3 +98,28 @@ button{
     border-radius: 10px;
 }
 
+@media screen and (max-width: 768px){
+    #formulaires{
+        flex-direction:column;
+    }
+    #formulaire_travail{
+        width:98%;
+        text-align: center;
+        justify-content: center;
+        font-size:25px;
+    }
+
+    #formulaire_pause{
+        width:98%;
+        text-align: center;
+        justify-content: center;
+        font-size: 25px;
+    }
+    #affichage{
+        width: 300px;
+        height: 300px;
+    }
+    label{
+        font-size: 20px;
+    }
+}

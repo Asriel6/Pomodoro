@@ -9,17 +9,18 @@ let settings_open = false;
 
 let output = document.getElementById('affichage')
 let stop_play = document.getElementById('stop_play')
-let reset = document.getElementById('reset')
 let affichage_travail = document.getElementById('travail')
 let affichage_pause = document.getElementById('pause')
 let parametres = document.getElementById('settings')
 
 parametres.addEventListener('click', () => {
     if(settings_open){
-
+        document.getElementById('formulaires').style.display = 'none'
+        settings_open = false
     }
-    else if(!(settings)){
-        
+    else{
+        document.getElementById('formulaires').style.display = 'flex'
+        settings_open = true
     }
 })
 
