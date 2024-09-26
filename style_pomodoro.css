@@ -55,11 +55,6 @@ button{
     justify-content: center;
 }
 
-
-button:hover{
-    background-color: #f1b17d;
-}
-
 #stop_play{
     margin-top: 25px;
     margin-right: 30px;
@@ -72,5 +67,28 @@ button:hover{
     margin-left: 30px;
     scale: 200%;
     color:white;
+}
+#formulaires{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+#formulaire_travail{
+    background-color:#DEC5E3 ;
+    margin-top: 50px;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+#formulaire_pause{
+    background-color:#DEC5E3 ;
+    margin-left: 5px;
+    margin-top: 50px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
 }
 

@@ -1,17 +1,27 @@
 let secondes = 5
-let minutes = 0
+let minutes = 10
 
 let fini = false
 let en_pause = false
 let en_travail = true
 let pause =  true
+let settings_open = false;
 
 let output = document.getElementById('affichage')
 let stop_play = document.getElementById('stop_play')
 let reset = document.getElementById('reset')
 let affichage_travail = document.getElementById('travail')
 let affichage_pause = document.getElementById('pause')
+let parametres = document.getElementById('settings')
 
+parametres.addEventListener('click', () => {
+    if(settings_open){
+
+    }
+    else if(!(settings)){
+        
+    }
+})
 
 
 stop_play.addEventListener('click', () => {
@@ -59,16 +69,16 @@ function convert(){
         if(!(fini)){
             if(en_travail == true){//Si on était en travail, on passe en pause et on remet les minutes secondes correspondantes
                 en_travail = false
-                minutes = 0
-                secondes = 5
+                minutes = 5
+                secondes = 0
                 en_pause = true
                 fini = false
             } 
             else{
                 if(en_pause == true){//Si on était en pause, on passe en travail et on remet les minutes secondes correspondantes
                     en_pause = false
-                    minutes = 0
-                    secondes = 5
+                    minutes = 25
+                    secondes = 0
                     en_travail = true
                     fini = false
                 }
