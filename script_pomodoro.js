@@ -20,7 +20,7 @@ let input_p_min = document.getElementById('pause_minutes')
 let input_p_sec = document.getElementById('pause_secondes')
 
 input_t_min.addEventListener('submit', () => {
-    let val1 = input_t_min.value
+    let val1 = parseInt(input_t_min.value)
     alert(val1)
 })
 
@@ -57,7 +57,7 @@ function convert(){
         minutes = Math.round(secondes/60)
         secondes = secondes%60
     }
-    //Actualisation des heures
+    //Actualisation des minutes
     if(minutes > 59){
         heures = Math.round(minutes/60)
         minutes = minutes%60
