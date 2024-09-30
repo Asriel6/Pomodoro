@@ -13,6 +13,17 @@ let affichage_travail = document.getElementById('travail')
 let affichage_pause = document.getElementById('pause')
 let parametres = document.getElementById('settings')
 
+//Formulaires
+let input_t_min = document.getElementById('travail_minutes')
+let input_t_sec = document.getElementById('travail_secondes')
+let input_p_min = document.getElementById('pause_minutes')
+let input_p_sec = document.getElementById('pause_secondes')
+
+input_t_min.addEventListener('submit', () => {
+    let val1 = input_t_min.value
+    alert(val1)
+})
+
 parametres.addEventListener('click', () => {
     if(settings_open){
         document.getElementById('formulaires').style.display = 'none'
