@@ -1,11 +1,8 @@
-let secondes = 5
-let minutes = 10
-
 let fini = false
 let en_pause = false
 let en_travail = true
 let pause =  true
-let settings_open = false;
+let settings_open = true;
 
 let output = document.getElementById('affichage')
 let stop_play = document.getElementById('stop_play')
@@ -19,18 +16,62 @@ let input_t_sec = document.getElementById('travail_secondes')
 let input_p_min = document.getElementById('pause_minutes')
 let input_p_sec = document.getElementById('pause_secondes')
 
-input_t_min.addEventListener('submit', () => {
+let envoi = document.getElementById('button_s')
+
+let newMin_t = 25
+let newSec_t = 0
+let newMin_p = 5
+let newsec_p = 0
+
+let secondes = newSec_t
+let minutes = newMin_t
+
+button_s.addEventListener('click', () => {
+    //Variables pour recevoir le nombre de secondes
     let val1 = parseInt(input_t_min.value)
-    alert(val1)
+    let val2 = parseInt(input_t_sec.value)
+    let val3 = parseInt(input_p_min.value)
+    let val4 = parseInt(input_p_sec.value)
+    if((val1 > 59 || val1 < 0) || (val2 > 59 || val2 < 0) || (val3 > 59 || val3 < 0) || (val4 > 59 || val4 < 0) ){
+        alert("Veuillez choisir une valeur entre 0 et 59")
+    } else {//On affecte a des variables visibles dans tout le programme
+        if(!(val1 != 25)){
+            newMin_t = val1
+        }
+
+        if(!(val2 != 0)){
+            newSec_t = val2
+        }
+
+        if(!(val3 != 5)){
+            newMin_p = val3
+        }
+
+        if(!(val4 != 0)){
+            newsec_p = val4
+        }
+        fini = true
+        en_travail = true
+        pause = true
+        let stop_play = document.getElementById('stop_play').className= "fa-solid fa-play fa-2xl"
+        stop_play.addEventListener('click', () => {
+            fini = false
+            pause = false
+        })
+    }
 })
 
 parametres.addEventListener('click', () => {
     if(settings_open){
         document.getElementById('formulaires').style.display = 'none'
+        document.getElementById('submit').style.display = 'none'
         settings_open = false
     }
     else{
         document.getElementById('formulaires').style.display = 'flex'
+        document.getElementById('submit').style.display = 'block'
+        document.getElementById('submit').style.textAlign = 'center'
+        document.getElementById('submit').style.justifyContent = 'center'
         settings_open = true
     }
 })
@@ -81,16 +122,16 @@ function convert(){
         if(!(fini)){
             if(en_travail == true){//Si on était en travail, on passe en pause et on remet les minutes secondes correspondantes
                 en_travail = false
-                minutes = 5
-                secondes = 0
+                minutes = newMin_p
+                secondes = newsec_p
                 en_pause = true
                 fini = false
             } 
             else{
                 if(en_pause == true){//Si on était en pause, on passe en travail et on remet les minutes secondes correspondantes
                     en_pause = false
-                    minutes = 25
-                    secondes = 0
+                    minutes = newMin_t
+                    secondes = newSec_t
                     en_travail = true
                     fini = false
                 }
@@ -111,10 +152,6 @@ function convert(){
         output.textContent =(minutes + ' : ' + '0' + secondes)
     }
     
-    
-
-    
-
     if(!(fini) && !(pause)){
         secondes-- 
     }
